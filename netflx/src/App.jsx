@@ -1,16 +1,12 @@
-import MoviesList from './components/MoviesList'
+import SearchMovie from './Pages/Search';
 import Trending from './Pages/Trending';
 
 function App() {
-  const moviesArray = ["Fast and furious", "Barbie", "Nemo"]
   return (
-    <>
-    <div className='App'>
-      <Trending/>
-      <MoviesList movies={moviesArray}/>
+    <div className="App">
+      <SearchMovie />
+      <Trending />
     </div>
-      
-    </>
   );
 }
 

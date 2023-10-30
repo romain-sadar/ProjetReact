@@ -1,31 +1,36 @@
-import { useState } from "react"
+import { useEffect, useState } from "react";
+const SearchMovie = () => {
+  const [title, setTitle] = useState(<>Recherche...</>);
+  const [search, setSearch] = useState("");
+  
 
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Recherche lancée pour " + search);
+    setTitle(<h1>Recherche pour {search}</h1>);
+    setSearch();
+  };
 
-const searchMovie = () => {
-    const [search, setSearch] = useState("")
-    const handleSubmits = (event) => {
-        event.preventDefault()
-    console.log("Recherche lancée")
-    }
-    const handleInputChange = (searchInput) => {
-        setSearch(searchInput)
-        console.log(searchInput)
-    }
-    return (
+  const handleInputChange = (searchInput) => {
+    setSearch(searchInput);
+    console.log(searchInput);
+  };
 
-        <>
-        
-        <h1>Recherche</h1>
-        <form onSubmit={handleSubmits}>
-            <input type="text" name="search" onChange={(e) => handleInputChange(e.target.value)} placeholder="Chercher un film"/>
-            <button type="sbmit" >Rechercher</button>
-            
-        </form>
+  return (
+    <>
+      {title}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="search"
+          placeholder="Rechercher un filmm"
+          onChange={(e) => handleInputChange(e.target.value)}
+        />
+        <button type="submit">Rechercher</button>
+      </form>
+    </>
+  );
+};
 
-        </>
-
-    )
-
-
-}
+export default SearchMovie;
